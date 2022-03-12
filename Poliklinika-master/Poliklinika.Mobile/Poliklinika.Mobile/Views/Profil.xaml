@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Poliklinika.Mobile.Views.Profil"
+             xmlns:vm="clr-namespace:Poliklinika.Mobile.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:ProfilVM></vm:ProfilVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Uredite svoj profil!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Ime" />
+            <Entry x:Name="Ime" Text="{Binding Ime}"/>
+            <Label Text="Prezime" />
+            <Entry x:Name="Prezime" Text="{Binding Prezime}"  Placeholder="" />
+            <Label Text="Email" />
+            <Entry x:Name="Email" Text="{Binding Email}"  Placeholder="" />
+            <Label Text="Broj Telefona" />
+            <Entry x:Name="BrojTelefon" Text="{Binding BrojTelefona}"  Placeholder="" />
+            <Label Text="Spol" />
+            <Picker x:Name="picker" SelectedItem="{Binding Spol}" />
+            <Label Text="Krvna Grupa" />
+            <Entry x:Name="KrvnaGrupa" Text="{Binding KrvnaGrupa}"  Placeholder="" />
+            <Label Text="Datum Rodjenja" />
+            <DatePicker x:Name="DatumRodjenja" Date="{Binding DatumRodjenja}"/>
+            <Button VerticalOptions="Center" Text="Potvrdi" Command="{Binding UpdateCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

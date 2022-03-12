@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Poliklinika.Mobile.Views.AboutPage"
+             xmlns:vm="clr-namespace:Poliklinika.Mobile.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView  VerticalOptions="FillAndExpand">
+                    <Image Source="logo.JPG" Margin="0,30,0,0" VerticalOptions="Center" HeightRequest="123" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="15">
+                <Label Text="Zdrava osoba je sretna osoba!" FontSize="Header"/>
+                <Label Text="Dođite i uvjerite se da smo tim kojem možete vjerovati. Naš zajednički cilj je Vaše zdravlje. Zaboravite čekanje na pregled, zakažite svoj pregled već danas, kada to Vama odgovara, a ostalo prepustite nama." FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Kreirajte svoj profil i postanite dio naše porodice. Ukoliko Vam je potreban savjet obratite se našim doktorima koji su uvijek tu za Vas." FontSize="16" Padding="0,0,0,0" TextColor="DarkOrchid"/>
+
+                <Button x:Name="Login" Margin="0,10,0,0" Text="Prijavi se"
+                        Command="{Binding OpenLogin}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+                <Button x:Name="Register" Margin="0,10,0,0" Text="Kreiraj korisnički račun"
+                        Command="{Binding OpenRegister}"
+                        BackgroundColor="DarkOrchid"
+                        TextColor="White" />
+            </StackLayout>
+           
+        </ScrollView>
+        <Grid x:Name="gridPreporuke">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="2" >
+                <StackLayout Orientation="Vertical"
+                             x:Name="preporukeContainer">
+                
+            </StackLayout>
+        </ScrollView>
+        </Grid>
+        
+    </Grid>
+</ContentPage>

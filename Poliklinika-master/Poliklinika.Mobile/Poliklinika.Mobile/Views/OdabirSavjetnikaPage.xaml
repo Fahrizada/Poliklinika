@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Poliklinika.Mobile.Views.OdabirSavjetnikaPage"
+             xmlns:vm="clr-namespace:Poliklinika.Mobile.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <vm:OdabirDoktoraVM></vm:OdabirDoktoraVM>
+    </ContentPage.BindingContext>
+        <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Izaberi doktora kojem želiš poslati poruku " />
+            <Picker x:Name="picker"/>
+            <Label Text="Unesi poruku" />
+            <Entry x:Name="Poruka" Text="{Binding Poruka}" />
+            <Button Text="Posalji" Clicked="Button_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

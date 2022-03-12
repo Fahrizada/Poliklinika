@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Poliklinika.Mobile.Views.PrikazNalazaPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
+            <Label Text="Doktor:" TextColor="Red"/>
+            <Label x:Name="doc" FontSize="Medium" />
+            <Label Text="Dijagnoza i terapija:" TextColor="Red"/>
+            <Label x:Name="opis" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

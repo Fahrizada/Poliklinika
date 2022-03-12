@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Poliklinika.Mobile.ViewModels"
+             x:Class="Poliklinika.Mobile.Views.Register">
+    <ContentPage.BindingContext>
+        <vm:RegisterVM></vm:RegisterVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" >
+            <Label Text="Unesi svoje podatke. Pritiskom na dugme Kreiraj, napravi svoj profil"
+                   FontSize="Medium" Padding="0,30,0,0" TextColor="Orchid"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Ime" />
+            <Entry Text="{Binding Ime}"/>
+            <Label Text="Prezime" />
+            <Entry Text="{Binding Prezime}"  />
+            <Label Text="Datum rođenja" />
+            <DatePicker Date="{Binding DatumRodjenja}" />
+            <Label Text="Email" />
+            <Entry Text="{Binding Username}" />
+            <Label Text="Šifra" />
+            <Entry Text="{Binding Password}" IsPassword="True" />
+            <Button VerticalOptions="Center" Text="Kreiraj" Command="{Binding RegisterCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

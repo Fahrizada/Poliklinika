@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Poliklinika.Mobile.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:Poliklinika.Mobile.ViewModels"  
+             xmlns:model="clr-namespace:Poliklinika.Mobile.Models"  
+             x:Name="BrowseItemsPage">
+    <ContentPage.BindingContext>
+        <local:ItemsViewModel></local:ItemsViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Odjeli" FontSize="Header"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+            <ListView ItemsSource="{Binding OdjeliLista}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                               
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="30"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                 
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+    
+    
+</ContentPage>

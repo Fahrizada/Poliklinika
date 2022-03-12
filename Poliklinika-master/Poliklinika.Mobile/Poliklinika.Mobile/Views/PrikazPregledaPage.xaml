@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Poliklinika.Mobile.ViewModels"
+             x:Class="Poliklinika.Mobile.Views.PrikazPregledaPage">
+    <ContentPage.BindingContext>
+        <viewmodels:KorisnikPregled></viewmodels:KorisnikPregled>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Moji pregledi" FontSize="Header"
+                   VerticalOptions="StartAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+            <ListView ItemsSource="{Binding PreglediLista}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Margin="0,20,80,0" Orientation="Horizontal">
+                                <Label>
+                                    <Label.Text 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="20"
+                                        HorizontalOptions="StartAndExpand"
+                                        LineBreakMode="NoWrap">
+                                        <MultiBinding StringFormat="{}{0}    {1}">
+                                            <Binding  Path="Datum" />
+                                            <Binding Path="odjel.Naziv" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

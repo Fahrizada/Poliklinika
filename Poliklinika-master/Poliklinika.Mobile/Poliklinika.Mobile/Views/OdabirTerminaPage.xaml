@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Poliklinika.Mobile.Converters"
+             x:Class="Poliklinika.Mobile.Views.OdabirTerminaPage"
+             xmlns:vm ="clr-namespace:Poliklinika.Mobile.ViewModels"
+             xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConvertor x:Key="ImageConverter"></converters:ImageConvertor>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="slika"  VerticalOptions="Center" ></Image>
+            <Label x:Name="naziv" Margin="0,10,0,0" Text="test" TextColor="CornflowerBlue" FontSize="Header" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Odaberi slobodan termin" FontSize="Header" Margin="0,10,0,20" HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="OdjelID" Text="{Binding OdjelID}" IsVisible="false" ></Label>
+            <DatePicker x:Name="Datum"  Date="{Binding Datum}"/>
+            <Picker x:Name="Termini" ItemsSource="{Binding Termini}" ></Picker>
+            <Button x:Name="zakazi" Margin="0,20,0,0" Text="Zakaži"
+                    Clicked="zakazi_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

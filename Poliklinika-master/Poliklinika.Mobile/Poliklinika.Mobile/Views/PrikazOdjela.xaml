@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Poliklinika.Mobile.ViewModels"
+             x:Class="Poliklinika.Mobile.Views.PrikazOdjela"
+             xmlns:converters="clr-namespace:Poliklinika.Mobile.Converters">
+
+    <ContentPage.BindingContext>
+        <local:OdjelViewModel></local:OdjelViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConvertor x:Key="imgConv"></converters:ImageConvertor>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentView> 
+
+        <StackLayout>
+            <Image x:Name="slika" Source="{Binding Slika, Converter={StaticResource imgConv}}"
+               
+                   WidthRequest="400"
+                   HeightRequest="400"></Image>
+            <Label x:Name="naziv"  Margin="0,10,0,0" Text="{Binding Naziv}" FontSize="Header" HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="opis"  Margin="0,10,0,0" Text="{Binding Opis}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="id" Text="{Binding ID}" IsVisible="false" />
+            <Button x:Name="termin" Margin="0,10,0,0" Text="Zakaži termin"
+                    Clicked="termin_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            <Button x:Name="savjet" Margin="0,10,0,0" Text="Potraži stručno mišljenje"
+                       Clicked="savjet_Clicked"
+                        BackgroundColor="DarkOrchid"
+                        TextColor="White" />
+        </StackLayout>
+
+     </ContentView>
+</ContentPage>
